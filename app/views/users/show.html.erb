@@ -1,0 +1,29 @@
+ 
+<fieldset align="center"><fieldset>
+   <legend align ="center"><h2> User Detail :</h2></legend>
+
+   <% if current_user.image.attached? %>
+   <p align="center"><%= image_tag current_user.image.representation(resize_to_limit: [250, 250]) %></p> 
+   <% end %> 
+   <p align ="center"><strong> Username : </strong> <%= @user.username%></p>
+   <p align ="center"><strong> Email    : </strong> <%= @user.email %></p>
+</fieldset>
+
+
+<% if @user.books != []%>
+<% @books.each do |book| %>
+<fieldset>
+    <p align="center"><strong> Name      : </strong><%=book.name%></p>
+    <p align="center"><strong> Edition   : </strong><%=book.edition%></p>
+    <p align="center"><strong> Released  : </strong><%=book.r_year%></p>
+    <p align="center"><strong> Price     : </strong><%=book.price%></p>
+
+</fieldset>
+<br>
+<%end%>
+<%end%>
+<fieldset>
+    <p align="center" ><%= link_to "back",root_path %></p>
+
+
+</fieldset>

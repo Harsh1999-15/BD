@@ -1,0 +1,15 @@
+<p id="notice"><%= notice%></p>
+<fieldset>
+	<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody id='books'>
+    <%#= render @books %>
+  </tbody>
+</table>
+</fieldset>

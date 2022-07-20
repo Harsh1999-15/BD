@@ -1,0 +1,32 @@
+<h2>Edit <%#= resource_name.to_s.humanize %></h2>
+
+<%= form_for(@user) do |f| %>
+  <%#= render "devise/shared/error_messages", resource: resource %>
+  <div class="field">
+    <%= f.label :Username %><br />
+    <%= f.text_field :username, autofocus: true, placeholder:"Rocky@1234" %>
+  </div>
+  <div class="field">
+    <%= f.label :Unique_id %><br />
+    <%= f.text_field :unique_id, placeholder:"D1234" %>
+  </div>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  </div>
+
+  <!-- image -->
+        <fieldset class="field">
+          <legend><strong>Image</strong></legend>
+          <%= f.file_field :image %>
+        </fieldset>
+  
+
+
+  <div class="actions">
+    <%= f.submit "Update" %>
+  </div>
+<% end %>
+
+
+<%= link_to "Back", root_path %>

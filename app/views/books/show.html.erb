@@ -1,0 +1,12 @@
+<fieldset align="center">
+	<legend><h2>Book Details</h2></legend>
+	<p align="center"><strong> Name      : </strong><%=@book.name%></p>
+	<p align="center"><strong> Edition   : </strong><%=@book.edition%></p>
+	<p align="center"><strong> Released  : </strong><%=@book.r_year%></p>
+	<p align="center"><strong> Author    : </strong><%=User.find(@book.user_id).username%></p>
+	<p align="center"><strong> Price     : </strong><%=@book.price%></p>
+</fieldset>
+<fieldset align="center">
+	<p align="center"><%= link_to "Back", books_path %></p>
+	<p align="center"><%= link_to "Home", root_path %></p>
+</fieldset>

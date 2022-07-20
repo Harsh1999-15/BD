@@ -1,0 +1,45 @@
+<fieldset align = "center">
+<% if user_signed_in? %>
+	<legend align='center'>Logged in as <strong><%= current_user.username %></strong><br><strong><%=current_user.roles.first.name%></strong></legend>
+	<p align="center"><%= link_to "Show Profile", current_user %></p>
+  <p align="center"><%= link_to 'Edit profile', edit_user_registration_path %></p>
+  <p align="center"><%= link_to "Logout", destroy_user_session_path, method: :delete  %></p>
+</fieldset> 
+<!-- User data import-->
+<% if current_user.has_role? :author or current_user.has_role? :admin %>
+<fieldset align = "center">
+	<legend><strong>>  User List  <</strong></legend>
+	<table align="center">
+		<thead>
+			<tr>
+
+				<th>Image</th>
+				
+				<th align="center"> Username </th>
+				<th align="center"> Email </th>
+				<th colspan="3"></th>
+			</tr>
+		</thead>
+		<tbody id='users'>
+			<%= render @users %>
+		</tbody>
+
+
+	</table>
+</fieldset>
+<%end%>
+<br>
+<!-- author and reader view -->
+<fieldset>
+			<p align="center"><%= link_to "Book List",books_path %></p>
+</fieldset>
+ 
+<!-- Ending of login -->
+
+<%else%>
+  <legend align = "center">For Sign Up and Login</legend>
+    <p align="center"><%= link_to "Sign up", new_user_registration_path  %></p>
+    <p align="center"><%= link_to "Login", new_user_session_path  %></p>
+<%end%>
+</fieldset>
+

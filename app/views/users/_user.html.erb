@@ -1,0 +1,24 @@
+
+<% if user.id !=current_user.id%>
+<% if user.roles.first.name != "admin" %>
+<%# if user.roles.first.name == "author"%>
+<tr>
+	<% if user.image.attached? %>
+	<td align="center"><%= image_tag user.image.representation(resize_to_limit: [70, 70]) %></td> 
+	<% end %> 
+	<% if current_user.has_role? :admin %>
+	<td><%= user.unique_id %></td>
+	<%end%>
+	<td><%= user.username %></td>
+	<td><%= user.email %></td>
+	<td><%= link_to "Show", user %></td>
+	<% if current_user.has_role? :admin %>
+	
+	<td><%= link_to "Edit", edit_user_path(user) %></td>
+	<td><%= link_to "delete", user, method: :delete,remote: true,data: { confirm: 'Are you sure?' }%></td>
+	<%end%>
+	<%end%>
+	<%#end%>
+
+	<%end%><!--ending name matching-->
+</tr>
